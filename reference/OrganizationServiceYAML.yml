@@ -728,7 +728,7 @@ components:
           example: US
         period:
           $ref: '#/components/schemas/PeriodDTO'
-      description: An address for the organization.
+      description: The address for the organization.
     CodeableConceptDTO:
       type: object
       properties:
@@ -741,7 +741,7 @@ components:
           type: string
           description: Plain text representation of the concept.
           example: Code from external system
-      description: The type of contact.
+      description: The type of contact represented as a code.
     CodingDTO:
       type: object
       properties:
@@ -757,7 +757,7 @@ components:
           type: string
           description: Representation defined by the system.
           example: Code1
-      description: Code defined by a terminology system.
+      description: The code assigned to the organization.
     ContactPointDTO:
       type: object
       properties:
@@ -780,7 +780,7 @@ components:
           example: 1
         period:
           $ref: '#/components/schemas/PeriodDTO'
-      description: A contact detail for the organization.
+      description: Details of contact information for the organization.
     IdentifierDTO:
       type: object
       properties:
@@ -804,7 +804,7 @@ components:
           example: 05e78fe8-0742-11eb-adc1-0242ac120002
         period:
           $ref: '#/components/schemas/PeriodDTO'
-      description: Identifies this organization across multiple systems.
+      description: The ID of the organization to be used across multiple systems.
     OrganizationPartialDTO:
       type: object
       properties:
@@ -863,6 +863,7 @@ components:
           description: An address for the organization.
           items:
             $ref: '#/components/schemas/AddressDTO'
+      description: Partial information about the organization.
     PeriodDTO:
       type: object
       properties:
@@ -886,7 +887,7 @@ components:
           type: string
           description: User identifier.
           example: 05e78fe8-0742-11eb-adc1-0242ac120002
-      description: Contact for the organization for a certain purpose.
+      description: Contact information for the organization for a specific purpose.
     OrganizationDTO:
       required:
         - active
@@ -950,6 +951,7 @@ components:
           description: An address for the organization.
           items:
             $ref: '#/components/schemas/AddressDTO'
+      description: 'Organization information, such as parent organization, type of of organization, alternate names, organization description, and contact information. '
     ErrorDetail:
       type: object
       properties:
@@ -959,6 +961,7 @@ components:
           type: string
         message:
           type: string
+      description: Detail information about the error.
     ErrorMessage:
       type: object
       properties:
@@ -966,6 +969,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ErrorDetail'
+      description: The error message (to be modified by developers for the application).
     NavigationInfoOrganizationDTO:
       type: object
       properties:
@@ -985,6 +989,7 @@ components:
           type: string
           description: url to get last page
           example: api/v2/entity?page=11&size=20
+      description: Links to navigation pages for the organization.
     PagingInfoOrganizationDTO:
       type: object
       properties:
@@ -999,11 +1004,13 @@ components:
             $ref: '#/components/schemas/OrganizationDTO'
         paging:
           $ref: '#/components/schemas/NavigationInfoOrganizationDTO'
+      description: Pages to display for the organization information (to be modified by developers for the application)
     ResponseMessage:
       type: object
       properties:
         success:
           type: boolean
+      description: The response message (to be modified by developers for the application).
   examples:
     ERR_415:
       summary: ERR_415
