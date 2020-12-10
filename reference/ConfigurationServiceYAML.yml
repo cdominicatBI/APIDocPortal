@@ -559,6 +559,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ErrorDetail'
+      description: The error message to display (to be modified by the developer for the application).
     CategoryDTO:
       required:
         - name
@@ -594,6 +595,7 @@ components:
         pageSize:
           type: integer
           format: int32
+      description: Whether the category information displays in multiple pages.
     Sort:
       type: object
       properties:
@@ -603,6 +605,7 @@ components:
           type: boolean
         empty:
           type: boolean
+      description: Sorting settings for the category.
     NavigationInfoCategoryDTO:
       type: object
       properties:
@@ -622,6 +625,7 @@ components:
           type: string
           description: url to get last page
           example: api/v2/entity?page=11&size=20
+      description: Links to navigation pages for the category.
     PagingInfoCategoryDTO:
       type: object
       properties:
@@ -636,11 +640,13 @@ components:
             $ref: '#/components/schemas/CategoryDTO'
         paging:
           $ref: '#/components/schemas/NavigationInfoCategoryDTO'
+      description: The pages to display for the category.
     ResponseMessage:
       type: object
       properties:
         success:
           type: boolean
+      description: The response message to display (to be modified by developers for the application).
     SystemSettingDTO:
       type: object
       properties:
@@ -686,6 +692,7 @@ components:
             type: string
             description: List of allowed values
             example: '["DAILY","WEEKLY","MONTHLY"]'
+      description: An ID for the category's system settings.
   examples:
     ERR_415:
       summary: ERR_415
