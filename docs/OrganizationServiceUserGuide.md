@@ -1,6 +1,6 @@
-# ConfigurationServiceAPIUserGuide
+# Organization Service API User Guide
 
-This overview explains how to use the [Configuration Service API](reference/ConfigurationServiceYAML.yml) when configuring a deliverable.
+This overview explains how to use the [Configuration Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable.
 
 ## What is the Configuration Service?
 
@@ -11,7 +11,7 @@ The Configuration Service enables preferences and settings for system functional
 ### How System Settings Govern Functions and Microservices
 System settings are global rules that filter down through two levels to control what End-Users can see and do in the customer solution. The example below illustrates how system settings for a deliverables are inherited at the Category and the Organizations level, and then for User roles.
 
-![Functional Heirarchy Diagram](assets/images/ConfigurationSvcHierarchy.png)
+![Functional Heirarchy Diagram](../assets/images/ConfigurationSvcHierarchy.png)
 
 The architecture above enables the BrightInsight developer to configure system settings at a global level and then refine behavior for different use cases, user roles, or types of care.
 

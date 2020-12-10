@@ -22,7 +22,7 @@ Every BrightInsight API has an operation ID, listed within the API as a tag. The
 
 To see examples and schemas for an object, expand the API, then under the object, locate the **Example Value** and **Schema** toggles. 
 
-![Examples Schemas Toggles](assets/images/ExampleSchemaToggle.png)
+![Examples Schemas Toggles](../assets/images/ExampleSchemaToggle.png)
 
 Clicking either changes the display to show examples or schemas.
 
