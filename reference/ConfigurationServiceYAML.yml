@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Configuration Service
+  title: Configuration Service API
   description: 'Configuration Service APIs are a mesh of policies governing functionality and microservices in a customer solution. BrightInsight developers use them to configure and adjust the behavior of functionality and independent microservices as they are packaged for a deliverable, controlling how those objects communicate with each other and external systems. This allows them to easily implement permissions and data policies mapped directly to application behavior outcomes, ensuring good end-user experiences. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.'
   version: 1.0.0
   x-safety-class: C

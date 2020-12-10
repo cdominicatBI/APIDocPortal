@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Organization Service
+  title: Organization Service API
   description: '<p>Organization Service APIs are a mesh of policies governing <i>organizations</i> in a customer solution. BrightInsight developers use them to define and work with organizations and how they are assigned to functions and microservices in the customer application. This allows them to easily map permissions and data policies for each organization. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production. Organization settings control the functionality available to end-users in each organization defined for the customer solution.</p> <p>End-users are assigned to each organization and thereby affected by the controls of the Organization microservice. This architecture enables the BrightInsight developer to configure organizations independently of other BrightInsight microservices, and then assign them as needed, making it easy to administer access and functionality from other microservices by organization.</p>'
   version: 1.0.0
   x-safety-class: C
