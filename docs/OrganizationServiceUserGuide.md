@@ -1,19 +1,14 @@
 # Organization Service API User Guide
 
-This overview explains how to use the [Configuration Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable.
+This overview explains how to use the [Organization Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable.
 
-## What is the Configuration Service?
+# What is the Organization Service?
+Essentially, Organization Service APIs are a mesh of policies governing organizations in a customer solution. BrightInsight developers use them to define and work with organizations and how they are assigned to functions and microservices in the customer application. This allows them to easily map permissions and data policies for each organization. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
 
-Essentially, Configuration Service APIs are a mesh of policies governing functionality and microservices in a customer solution. BrightInsight developers use them to configure and adjust the behavior of functionality and independent microservices as they are packaged for a deliverable, controlling how those objects communicate with each other and external systems. This allows them to easily implement permissions and data policies mapped directly to application behavior outcomes, ensuring good end-user experiences. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
+## How it Works
+Organization settings control the functionality available to end-users in each organization defined for the customer solution. End-users are assigned to each organization and thereby affected by the controls of the Organization microservice. This architecture enables the BrightInsight developer to configure organizations independently of other BrightInsight microservices, and then assign them as needed, making it easy to administer access and functionality from other microservices by organization. 
 
-The Configuration Service enables preferences and settings for system functionality and microservices to be handled at a global level. Some Configuration Service APIs are External (exposed to the internet via APIgee), while others are Internal (only called by other BrightInsight microservices).
-
-### How System Settings Govern Functions and Microservices
-System settings are global rules that filter down through two levels to control what End-Users can see and do in the customer solution. The example below illustrates how system settings for a deliverables are inherited at the Category and the Organizations level, and then for User roles.
-
-![Functional Heirarchy Diagram](../assets/images/ConfigurationSvcHierarchy.png)
-
-The architecture above enables the BrightInsight developer to configure system settings at a global level and then refine behavior for different use cases, user roles, or types of care.
+![Functional Heirarchy Diagram](../assets/images/OrganizationHeirarchy.png)
 
 ### Terminology
 - [ ] **Settings**: Preferences set by the developer to govern a set of functionality and microservices for a deliverable.
