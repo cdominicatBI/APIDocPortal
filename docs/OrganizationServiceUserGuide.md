@@ -10,18 +10,7 @@ Organization settings control the functionality available to end-users in each o
 
 ![Functional Heirarchy Diagram](../assets/images/OrganizationHeirarchy.png)
 
-### Terminology
-- [ ] **Settings**: Preferences set by the developer to govern a set of functionality and microservices for a deliverable.
-- [ ] **Categories**: Groupings of functionality- that the developer prefers to administer as a set, for example for types of care such as Assessment, Therapy, or PRO (question & answer).
-- [ ] **Organizations**: Groups of people using the system, such as companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, research study participants, etc.
-- [ ] **Objects**: Elements of BrightInsight REST APIs that provide controls and functionality.
-- [ ] **API Users**: BrightInsight APIs are typically used by the BrightInsight Delivery team, including application developers, solution architects, and software architects.
-- [ ] **End-Users**: people who use the customer solution, such as the software interface for a device or app that has been built using BrightInsight APIs. These may include:
-- **Customers** of BrightInsight (such as a pharma company)
-- **Partners** (the customer or partner of the Customer, such as an Employer, Trial Site, Clinic)
-- **Providers** such as doctors, clinicians, investigators, professional caregivers
-- **Patients** (the people receiving care)
-- **Care Team** (a combination of Providers, plus the friends and family providing care to a Patient)
+**See Also**: [API Terminology](..docs/API-Terminology.md)
 
 ### Functional Rules
 The functionality rules below govern behavior for all APIs in this set.
@@ -47,7 +36,7 @@ CS-03	| Get System Settings	| GET /system-settings/{{systemSettingId}}	| Fetches
 CS-04	| Update System Setting	| PUT /system-settings/{{systemSettingId}} | Changes settings for the system	| Modifying behavior settings for entire system, affecting all associated categories, organizations, and users.
 CS-05	| Delete System Settings	| DELETE /system-settings/{{systemSettingId}}	| Removes settings for the system		| Removing settings at the system level, affecting all associated categories, organizations, and users.
 
-###Category APIs
+### Category APIs
 
 API Code	| API Name	| URL	| How it works	| Use for
 ----------|-----------|---------|-------------|---------
@@ -57,4 +46,4 @@ CS-08	| Retrieve System Settings Category	| GET /categories/{{categoryId}}	| Fet
 CS-09	| Update System Settings Category	PUT /categories/{{categoryId}}	| Changes settings under a category	| Modifying which behavior settings are associated with a particular category. 
 CS-10	| Delete System Settings Category	| DELETE /categories/{{categoryId}}	| Removes settings under a category	| Disassociating system settings from a category without changing the settings.
 
-**Next: **[See How BrightInsight APIs are Organized](docs/user-guide/How-BrightInsight-APIs-are-Organized.md)
+**Next: **[See How BrightInsight APIs are Organized](../docs/user-guide/How-BrightInsight-APIs-are-Organized.md)
