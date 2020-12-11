@@ -10,7 +10,7 @@ Organization settings control the functionality available to end-users in each o
 
 ![Functional Heirarchy Diagram](../assets/images/OrganizationHeirarchy.png)
 
-**See Also**: [API Terminology](..docs/API-Terminology.md)
+**See Also**: [API Terminology](../docs/API-Terminology.md)
 
 ### Functional Rules
 The functionality rules below govern behavior for all APIs in this set.
@@ -46,4 +46,4 @@ CS-08	| Retrieve System Settings Category	| GET /categories/{{categoryId}}	| Fet
 CS-09	| Update System Settings Category	PUT /categories/{{categoryId}}	| Changes settings under a category	| Modifying which behavior settings are associated with a particular category. 
 CS-10	| Delete System Settings Category	| DELETE /categories/{{categoryId}}	| Removes settings under a category	| Disassociating system settings from a category without changing the settings.
 
-**Next: **[See How BrightInsight APIs are Organized](../docs/user-guide/How-BrightInsight-APIs-are-Organized.md)
+**Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)

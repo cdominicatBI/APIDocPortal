@@ -15,7 +15,7 @@ System settings are global rules that filter down through two levels to control 
 
 The architecture above enables the BrightInsight developer to configure system settings at a global level and then refine behavior for different use cases, user roles, or types of care.
 
-**See Also**: [API Terminology](..docs/API-Terminology.md)
+**See Also**: [API Terminology](../docs/API-Terminology.md)
 
 ## APIs in This Set
 The endpoints of the Configuration Service are summarized below. To learn more about a specific API, follow the link in the left column.
@@ -32,5 +32,5 @@ API-OS05	| Patch Organization	| PATCH/ organizations/{id}	| Change specific sett
 API-OS06	| Delete Organization	| DELETE /organizations/{id}	| Removes an organization from the system.	| Deleting an organization (without removing end-users assigned to that organization).
 API-OS07	| List Child Organizations	| GET /organizations/{id}/children	| Fetches a list of child organizations under an organization.	| Looking up the organizations that are descendants of an organization.
 
-**Next: **[See How BrightInsight APIs are Organized](../docs/user-guide/How-BrightInsight-APIs-are-Organized.md)
+**Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
 

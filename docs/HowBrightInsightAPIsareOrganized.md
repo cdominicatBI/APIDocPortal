@@ -26,7 +26,7 @@ To see examples and schemas for an object, expand the API, then under the object
 
 Clicking either changes the display to show examples or schemas.
 
-### Components
+### Components or Models
 
 Compliant with the OAS 3.0 specification, BrightInsight APIs organize the following reusable objects in a #/components section in the code:
 - [ ] responses 
