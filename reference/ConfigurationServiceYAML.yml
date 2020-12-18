@@ -75,7 +75,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_CS06_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_CS06_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_CS06_003
@@ -181,7 +181,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_CS09_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_CS09_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_CS09_003
@@ -255,7 +255,7 @@ paths:
                 ERR_404:
                   $ref: '#/components/examples/ERR_404'
         '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
           content:
             application/json:
               schema:
@@ -265,7 +265,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_CS10_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_CS10_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_CS10_003
@@ -341,7 +341,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_CS08_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_CS08_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_CS08_003
@@ -421,7 +421,7 @@ paths:
                 ERR_415:
                   $ref: '#/components/examples/ERR_415'
         '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
           content:
             application/json:
               schema:
@@ -431,7 +431,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_CS07_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_CS07_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_CS07_003
@@ -513,7 +513,7 @@ paths:
                       message: 'Oops, something went wrong! Please contact the server administrator.'
       x-validation-rules:
         - name: VR_BT01_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user''s tokenId. Refer to ERR_401.'
+          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
         - name: VR_BT01_002
           description: Login user has no permission. Refer to ERR_403.
         - name: VR_BT01_003
@@ -692,7 +692,7 @@ components:
             type: string
             description: List of allowed values
             example: '["DAILY","WEEKLY","MONTHLY"]'
-      description: An ID for the category's system settings.
+      description: An ID for the category's system settings
   examples:
     ERR_415:
       summary: ERR_415
