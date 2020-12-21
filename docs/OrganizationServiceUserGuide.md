@@ -1,6 +1,6 @@
 # Organization Service API User Guide
 
-This overview explains how to use the [Organization Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable.
+This overview explains how to use the [Organization Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable, and is intended for application developers who are using this microservice to build a custom application.
 
 # What is the Organization Service?
 Essentially, Organization Service APIs are a mesh of policies governing organizations in a customer solution. BrightInsight developers use them to define and work with organizations and how they are assigned to functions and microservices in the customer application. This allows them to easily map permissions and data policies for each organization. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
