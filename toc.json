@@ -1,3 +1,38 @@
 {
-  "items": []
+  "items": [
+    {
+      "type": "item",
+      "title": "API-Terminology",
+      "uri": "docs/API-Terminology.md"
+    },
+    {
+      "type": "item",
+      "title": "How Bright Insight APIs Are Organized",
+      "uri": "docs/HowBrightInsightAPIsareOrganized.md"
+    },
+    {
+      "type": "item",
+      "title": "Configuration Service API User Guide",
+      "uri": "docs/ConfigurationServiceUserGuide.md"
+    },    
+    {
+      "type": "item",
+      "title": "Organization Service API User Guide",
+      "uri": "docs/OrganizationServiceUserGuide.md"
+    },
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "Organization Service API",
+      "uri": "reference/OrganizationServiceYAML.yml"
+    },
+    {
+      "type": "item",
+      "title": "Organization Service",
+      "uri": "reference/OrganizationServiceYAML2.yml"
+    }
+  ]
 }
