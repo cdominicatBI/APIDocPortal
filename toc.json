@@ -1,14 +1,14 @@
 {
-  "items": [
-    {
-      "type": "item",
-      "title": "API-Terminology",
-      "uri": "docs/API-Terminology.md"
-    },
+  "items": [   
     {
       "type": "item",
       "title": "How Bright Insight APIs Are Organized",
       "uri": "docs/HowBrightInsightAPIsareOrganized.md"
+    },
+    {
+      "type": "item",
+      "title": "API-Terminology",
+      "uri": "docs/API-Terminology.md"
     },
     {
       "type": "item",
