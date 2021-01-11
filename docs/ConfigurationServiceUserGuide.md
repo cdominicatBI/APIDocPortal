@@ -32,5 +32,4 @@ API-OS05	| Patch Organization	| PATCH/ organizations/{id}	| Change specific sett
 API-OS06	| Delete Organization	| DELETE /organizations/{id}	| Removes an organization from the system.	| Deleting an organization (without removing end-users assigned to that organization).
 API-OS07	| List Child Organizations	| GET /organizations/{id}/children	| Fetches a list of child organizations under an organization.	| Looking up the organizations that are descendants of an organization.
 
-**Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
-
+**Next:** [See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
