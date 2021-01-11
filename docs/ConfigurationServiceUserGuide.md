@@ -1,6 +1,6 @@
 # Configuration Service API User Guide
 
-This overview explains how to use the Organization Service APIs when configuring a deliverable. 
+This overview explains how to use the [Configuration Service API](reference/ConfigurationServiceAPI.yml) when configuring a deliverable. 
 
 ## What is the Configuration Service?
 
