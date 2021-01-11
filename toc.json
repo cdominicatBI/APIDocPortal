@@ -31,13 +31,13 @@
     },
     {
       "type": "item",
-      "title": "Organization Service API",
-      "uri": "reference/OrganizationServiceYAML.yml"
-    },
-     {
-      "type": "item",
       "title": "Configuration Service API",
       "uri": "reference/ConfigurationServiceYAML.yml"
+    },
+    {
+      "type": "item",
+      "title": "Organization Service API",
+      "uri": "reference/OrganizationServiceYAML.yml"
     },
      {
       "type": "item",
