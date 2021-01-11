@@ -21,6 +21,11 @@
       "uri": "docs/OrganizationServiceUserGuide.md"
     },
     {
+      "type": "item",
+      "title": "Access Control Service API User Guide",
+      "uri": "docs/AccessControlServiceUserGuide.md"
+    },
+    {
       "type": "divider",
       "title": "APIS"
     },
@@ -29,10 +34,10 @@
       "title": "Organization Service API",
       "uri": "reference/OrganizationServiceYAML.yml"
     },
-    {
+     {
       "type": "item",
-      "title": "Organization Service",
-      "uri": "reference/OrganizationServiceYAML2.yml"
+      "title": "Configuration Service API",
+      "uri": "reference/ConfigurationServiceYAML.yml"
     },
      {
       "type": "item",
