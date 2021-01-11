@@ -26,6 +26,11 @@
       "uri": "docs/AccessControlServiceUserGuide.md"
     },
     {
+      "type": "item",
+      "title": "Notification Service API User Guide",
+      "uri": "docs/NotificationServiceUserGuide.md"
+    },
+    {
       "type": "divider",
       "title": "APIS"
     },
@@ -39,10 +44,11 @@
       "title": "Organization Service API",
       "uri": "reference/OrganizationServiceYAML.yml"
     },
+     
      {
       "type": "item",
-      "title": "Access Control Service API",
-      "uri": "reference/AccessControlServiceYAML.yml"
+      "title": "Notification Service API",
+      "uri": "reference/NotificationServiceYAML.yml"
     }
   ]
 }
