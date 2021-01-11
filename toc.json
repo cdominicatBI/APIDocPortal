@@ -2,12 +2,12 @@
   "items": [   
     {
       "type": "item",
-      "title": "How Bright Insight APIs Are Organized",
+      "title": "How BrightInsight APIs are Organized",
       "uri": "docs/HowBrightInsightAPIsareOrganized.md"
     },
     {
       "type": "item",
-      "title": "API-Terminology",
+      "title": "API Terminology",
       "uri": "docs/API-Terminology.md"
     },
     {
@@ -33,6 +33,11 @@
       "type": "item",
       "title": "Organization Service",
       "uri": "reference/OrganizationServiceYAML2.yml"
+    },
+     {
+      "type": "item",
+      "title": "Access Control Service API",
+      "uri": "AccessControlServiceYAML.yml"
     }
   ]
 }
