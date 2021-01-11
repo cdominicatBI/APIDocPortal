@@ -1,125 +1,59 @@
 openapi: 3.0.1
 info:
-  title: Configuration Service API
-  description: 'Configuration Service APIs are a mesh of policies governing functionality and microservices in a customer solution. BrightInsight developers use them to configure and adjust the behavior of functionality and independent microservices as they are packaged for a deliverable, controlling how those objects communicate with each other and external systems. This allows them to easily implement permissions and data policies mapped directly to application behavior outcomes, ensuring good end-user experiences. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.'
+  title: Configuration Service
+  description: "Configuration Service APIs are a mesh of policies governing functionality\
+    \ and microservices in a customer solution. BrightInsight developers use them\
+    \ to configure and adjust the behavior of functionality and independent microservices\
+    \ as they are packaged for a deliverable, controlling how those objectscommunicate\
+    \ with each other and external systems. This allows them to easily implement permissions\
+    \ and data policies mapped directly to application behavior outcomes, ensuring\
+    \ good end-user experiences. BrightInsight developers typically provide the initial\
+    \ configuration and these remain in place once they have been tested and put into\
+    \ production."
   version: 1.0.0
   x-safety-class: C
-  x-safety-class-description: 'the loss of the primary function of the User Schedule Service may potentially, worse-case, cause serious injury to the patient.'
+  x-safety-class-description: "the loss of the primary function of the User Schedule\
+    \ Service may potentially, worse-case, cause serious injury to the patient."
   x-external-services:
-    - name: User Non-PII Service
-      use: 'used to get user information, status and permissions'
-      errorHandling: 'https://flexdigitalhealth.jamacloud.com/perspective.req#/items/2767849?projectId=103'
-    - name: Organization Service
-      use: used to get organization information and status
-      errorHandling: 'https://flexdigitalhealth.jamacloud.com/perspective.req#/items/3939886?projectId=136'
+  - name: User Non-PII Service
+    use: "used to get user information, status and permissions"
+    errorHandling: https://flexdigitalhealth.jamacloud.com/perspective.req#/items/2767849?projectId=103
+  - name: Organization Service
+    use: used to get organization information and status
+    errorHandling: https://flexdigitalhealth.jamacloud.com/perspective.req#/items/3939886?projectId=136
 servers:
-  - url: 'http://localhost'
-    description: Generated server url
+- url: http://localhost
+  description: Generated server url
 paths:
-  '/categories/{id}':
-    get:
-      tags:
-        - Category
-      summary: Get Category
-      description: Fetches a single system setting. Use for looking up a single setting.
-      operationId: API-CS06
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          example: 05e78fe8-0742-11eb-adc1-0242ac120002
-      responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/CategoryDTO'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorMessage'
-              examples:
-                ERR_404:
-                  $ref: '#/components/examples/ERR_404'
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
-      x-validation-rules:
-        - name: VR_CS06_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_CS06_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_CS06_003
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_CS06_004
-          description: The server can't find the requested resource. Refer to ERR_404
-      x-permissions:
-        - product.configuration-service.category.get
-      x-is-external: 'true'
-      x-roles:
-        - IT_ADMIN
-        - PACIENT
-      x-requirements:
-        - SCONN-SRS-25
-      x-grpc:
-        serviceName: CategoryService
-        methodName: get
+  /categories/{id}:
     put:
       tags:
-        - Category
+      - Category
       summary: Update Category
-      description: Changes settings under a category. Use for modifying behavior settings that are associated with a particular category.
-      operationId: API-CS09
+      description: Changes category information.
+      operationId: API-CS10
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          example: 05e78fe8-0742-11eb-adc1-0242ac120002
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        example: 05e78fe8-0742-11eb-adc1-0242ac120002
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CategoryDTO'
+              $ref: '#/components/schemas/CategoryUpdateDTO'
         required: true
       responses:
-        '200':
+        "200":
           description: Success response message
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CategoryDTO'
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
@@ -130,29 +64,9 @@ paths:
                   $ref: '#/components/examples/ERR_0801'
                 ERR_0803:
                   $ref: '#/components/examples/ERR_0803'
-                ERR_0844:
-                  $ref: '#/components/examples/ERR_0844'
-                ERR_34802:
-                  $ref: '#/components/examples/ERR_34802'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '404':
+                CS_DUPLICATED_CATEGORY_NAME:
+                  $ref: '#/components/examples/CS_DUPLICATED_CATEGORY_NAME'
+        "404":
           description: Not Found
           content:
             application/json:
@@ -161,7 +75,7 @@ paths:
               examples:
                 ERR_404:
                   $ref: '#/components/examples/ERR_404'
-        '415':
+        "415":
           description: Unsupported Media Type
           content:
             application/json:
@@ -170,82 +84,105 @@ paths:
               examples:
                 ERR_415:
                   $ref: '#/components/examples/ERR_415'
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
       x-validation-rules:
-        - name: VR_CS09_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_CS09_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_CS09_003
-          description: Invalid Content-Type value. Refer to ERR_415.
-        - name: VR_CS09_004
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_CS09_005
-          description: A mandatory field is null. Refer to ERR_0801
-        - name: VR_CS09_006
-          description: Field doesn't have the required length. Refer to ERR_0803.
-        - name: VR_CS09_007
-          description: Field doesn't have a valid range value. Refer to ERR_34802.
-        - name: VR_CS09_008
-          description: The server can't find the requested resource. Refer to ERR_404
+      - name: VR_CS10_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS10_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS10_003
+        description: Invalid Content-Type value. Refer to ERR_415.
+      - name: VR_CS10_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS10_005
+        description: A mandatory field is null. Refer to ERR_0801
+      - name: VR_CS10_006
+        description: Field doesn't have the required length. Refer to ERR_0803.
+      - name: VR_CS10_007
+        description: The value in category name is already in use. Refer to CS_DUPLICATED_CATEGORY_NAME
+      - name: VR_CS10_008
+        description: The server can't find the requested resource. Refer to ERR_404
       x-permissions:
-        - product.configuration-service.category.update
-      x-is-external: 'true'
+      - product.configuration-service.category.update
+      x-is-external: "true"
       x-roles:
-        - IT_ADMIN
-        - PACIENT
-      x-requirements:
-        - SCONN-SRS-25
+      - IT_ADMIN
       x-grpc:
         serviceName: CategoryService
         methodName: update
-    delete:
+    patch:
       tags:
-        - Category
-      summary: Delete Category
-      description: Removes settings under a category. Use for disassociating system settings from a category without changing the settings.
-      operationId: API-CS10
+      - Category
+      summary: Patch Category
+      description: Patch Category API allows patch a Category.
+      operationId: API-CS11
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          example: 05e78fe8-0742-11eb-adc1-0242ac120002
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryPartialDTO'
+        required: true
       responses:
-        '200':
-          description: OK
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseMessage'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
+        "200":
+          description: Success response message
           content:
             application/json:
               schema:
-                example:
-                  errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
+                $ref: '#/components/schemas/CategoryDTO'
+        "400":
+          description: Bad Request
           content:
             application/json:
               schema:
-                example:
-                  errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '404':
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_0801:
+                  $ref: '#/components/examples/ERR_0801'
+                ERR_0803:
+                  $ref: '#/components/examples/ERR_0803'
+                CS_DUPLICATED_CATEGORY_NAME:
+                  $ref: '#/components/examples/CS_DUPLICATED_CATEGORY_NAME'
+        "404":
           description: Not Found
           content:
             application/json:
@@ -254,56 +191,114 @@ paths:
               examples:
                 ERR_404:
                   $ref: '#/components/examples/ERR_404'
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_415:
+                  $ref: '#/components/examples/ERR_415'
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
       x-validation-rules:
-        - name: VR_CS10_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_CS10_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_CS10_003
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_CS10_004
-          description: The server can't find the requested resource. Refer to ERR_404
+      - name: VR_CS11_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS11_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS11_003
+        description: Invalid Content-Type value. Refer to ERR_415.
+      - name: VR_CS11_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS11_005
+        description: A mandatory field is null. Refer to ERR_0801
+      - name: VR_CS11_006
+        description: Field doesn't have the required length. Refer to ERR_0803.
+      - name: VR_CS11_007
+        description: The value in category name is already in use. Refer to CS_DUPLICATED_CATEGORY_NAME
+      - name: VR_CS11_008
+        description: The server can't find the requested resource. Refer to ERR_404
       x-permissions:
-        - product.configuration-service.category.delete
-      x-is-external: 'true'
+      - product.configuration-service.category.patch
+      x-is-external: "true"
       x-roles:
-        - IT_ADMIN
-        - PACIENT
+      - IT_ADMIN
       x-requirements:
-        - SCONN-SRS-25
+      - SCONN-SRS-25
       x-grpc:
         serviceName: CategoryService
-        methodName: delete
+        methodName: update
   /categories:
     get:
       tags:
-        - Category
+      - Category
       summary: List Categories
-      description: Fetches a paged list of categories. Use for looking up a list of categories.
+      description: Fetches a paged list of categories. Use for looking up a list of
+        categories.
       operationId: API-CS08
       parameters:
-        - name: pageable
-          in: query
-          required: true
-          schema:
-            $ref: '#/components/schemas/Pageable'
+      - name: page
+        in: query
+        description: The index of page (1..N)
+        schema:
+          type: integer
+          default: "1"
+      - name: size
+        in: query
+        description: The number of result in a page
+        schema:
+          type: integer
+          default: "10"
+      - name: sort
+        in: query
+        description: "To sort the results in descending or ascending order. Sorting\
+          \ criteria in the format: property(,asc|desc). Default sort order is ascending.\
+          \ Multiple sort criteria are supported."
+        schema:
+          type: array
+          items:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/PagingInfoCategoryDTO'
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
@@ -312,73 +307,80 @@ paths:
               examples:
                 ERR_400:
                   $ref: '#/components/examples/ERR_400'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
       x-validation-rules:
-        - name: VR_CS08_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_CS08_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_CS08_003
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_CS08_004
-          description: A field or parameters contains the wrong data type. Refer to ERR_400
+      - name: VR_CS08_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS08_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS08_003
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS08_004
+        description: A field or parameters contains the wrong data type. Refer to
+          ERR_400
       x-permissions:
-        - product.configuration-service.category.list
-      x-is-external: 'true'
+      - product.configuration-service.category.list
+      x-is-external: "true"
       x-roles:
-        - IT_ADMIN
-        - PACIENT
-      x-requirements:
-        - SCONN-SRS-25
+      - IT_ADMIN
+      - PACIENT
       x-grpc:
         serviceName: CategoryService
         methodName: list
     post:
       tags:
-        - Category
+      - Category
       summary: Create Category
-      description: Establishes a category to which system settings can be assigned. Use for categorizing system settings to make them easier to administer.
+      description: Establishes a category to which system settings can be assigned.
+        Use for categorizing system settings to make them easier to administer.
       operationId: API-CS07
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CategoryDTO'
+              $ref: '#/components/schemas/CategoryCreateDTO'
         required: true
       responses:
-        '201':
+        "201":
           description: Success response message
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CategoryDTO'
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
@@ -389,29 +391,9 @@ paths:
                   $ref: '#/components/examples/ERR_0801'
                 ERR_0803:
                   $ref: '#/components/examples/ERR_0803'
-                ERR_0844:
-                  $ref: '#/components/examples/ERR_0844'
-                ERR_34802:
-                  $ref: '#/components/examples/ERR_34802'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
-          content:
-            application/json:
-              schema:
-                example:
-                  errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '415':
+                CS_DUPLICATED_CATEGORY_NAME:
+                  $ref: '#/components/examples/CS_DUPLICATED_CATEGORY_NAME'
+        "415":
           description: Unsupported Media Type
           content:
             application/json:
@@ -420,80 +402,115 @@ paths:
               examples:
                 ERR_415:
                   $ref: '#/components/examples/ERR_415'
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
       x-validation-rules:
-        - name: VR_CS07_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_CS07_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_CS07_003
-          description: Invalid Content-Type value. Refer to ERR_415.
-        - name: VR_CS07_004
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_CS07_005
-          description: A mandatory field is null. Refer to ERR_0801
-        - name: VR_CS07_006
-          description: Field doesn't have the required length. Refer to ERR_0803.
-        - name: VR_CS07_007
-          description: Field doesn't have a valid range value. Refer to ERR_34802.
+      - name: VR_CS07_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS07_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS07_003
+        description: Invalid Content-Type value. Refer to ERR_415.
+      - name: VR_CS07_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS07_005
+        description: A mandatory field is null. Refer to ERR_0801
+      - name: VR_CS07_006
+        description: Field doesn't have the required length. Refer to ERR_0803.
+      - name: VR_CS07_008
+        description: The value in category name is already in use. Refer to CS_DUPLICATED_CATEGORY_NAME
       x-permissions:
-        - product.configuration-service.category.create
-      x-is-external: 'true'
+      - product.configuration-service.category.create
+      x-is-external: "true"
       x-roles:
-        - IT_ADMIN
-        - PACIENT
-      x-requirements:
-        - SCONN-SRS-25
+      - IT_ADMIN
       x-grpc:
         serviceName: CategoryService
         methodName: create
-  /system-settings:
-    post:
+  /system-settings/{id}:
+    put:
       tags:
-        - System Setting
-      summary: Create System Setting
-      description: 'Establishes system settings in batch to govern a collection of functions and microservices that are in use for the deliverable. Use for creating a new system setting, which controls the global behavior that can be applied to each microservice, such as organization-level override and user-level edits, report generation frequency, etc.'
-      operationId: API-CS01
+      - System Setting
+      summary: Update Setting
+      description: Update Setting API allows update a Setting.
+      operationId: API-CS04
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SystemSettingDTO'
+              $ref: '#/components/schemas/SystemSettingUpdateDTO'
         required: true
       responses:
-        '201':
+        "200":
           description: Success response message
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemSettingDTO'
-        '401':
-          description: The request has not been applied because it lacks valid authentication credentials for the target resource.
+        "400":
+          description: Bad Request
           content:
             application/json:
               schema:
-                example:
-                  errors:
-                    - code: '401'
-                      message: The request has not been applied because it lacks valid authentication credentials for the target resource.
-        '403':
-          description: The server understood the request but refuses to authorize it.
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_0801:
+                  $ref: '#/components/examples/ERR_0801'
+                ERR_0804:
+                  $ref: '#/components/examples/ERR_0804'
+                CS_INVALID_DATA_TYPE:
+                  $ref: '#/components/examples/CS_INVALID_DATA_TYPE'
+                CS_FIELD_CONDITIONALLY_REQUIRED:
+                  $ref: '#/components/examples/CS_FIELD_CONDITIONALLY_REQUIRED'
+        "404":
+          description: Not Found
           content:
             application/json:
               schema:
-                example:
-                  errors:
-                    - code: '403'
-                      message: The server understood the request but refuses to authorize it.
-        '415':
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_404:
+                  $ref: '#/components/examples/ERR_404'
+        "415":
           description: Unsupported Media Type
           content:
             application/json:
@@ -502,72 +519,372 @@ paths:
               examples:
                 ERR_415:
                   $ref: '#/components/examples/ERR_415'
-        '500':
-          description: The server encountered an unexpected condition that prevented it from fulfilling the request..
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
           content:
             application/json:
               schema:
                 example:
                   errors:
-                    - code: '500'
-                      message: 'Oops, something went wrong! Please contact the server administrator.'
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
       x-validation-rules:
-        - name: VR_BT01_001
-          description: 'The request lacks valid authentication credentials: blank authorization, missing authorization, expired user's tokenId. Refer to ERR_401.'
-        - name: VR_BT01_002
-          description: Login user has no permission. Refer to ERR_403.
-        - name: VR_BT01_003
-          description: Invalid Content-Type value. Refer to ERR_415.
-        - name: VR_BT01_004
-          description: The server encountered an unexpected condition. Refer to ERR_500.
-        - name: VR_BT01_005
-          description: A mandatory field is null. Refer to ERR_0801
-        - name: VR_BT01_006
-          description: Field doesn't have the required length. Refer to ERR_0803.
-        - name: VR_BT01_007
-          description: Field doesn't have a valid range value. Refer to ERR_34802.
+      - name: VR_CS04_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS04_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS04_003
+        description: Invalid Content-Type value. Refer to ERR_415.
+      - name: VR_CS04_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS04_005
+        description: A mandatory field is null. Refer to ERR_0801
+      - name: VR_CS04_006
+        description: Field doesn't have the required length. Refer to ERR_0803.
+      - name: VR_CS04_007
+        description: Field doesn't have a valid range value. Refer to ERR_34802.
+      - name: VR_CS04_008
+        description: Field value doesn't match with the given dataType. Refer to CS_INVALID_DATA_TYPE.
+      - name: VR_CS04_009
+        description: Field value doesn't match with the allowedValues. Refer to CS_VALUE_NOT_ALLOWED.
       x-permissions:
-        - product.base-templace.systemsetting.create
-      x-is-external: 'true'
+      - product.configuration-service.setting.update
+      x-is-external: "true"
       x-roles:
-        - IT_ADMIN
-      x-requirements:
-        - SCONN-SRS-25
+      - IT_ADMIN
+      x-grpc:
+        serviceName: SettingService
+        methodName: update
+    delete:
+      tags:
+      - System Setting
+      summary: Delete Setting
+      description: Delete Setting API allows delete a single setting by Id.
+      operationId: API-CS06
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemSettingDTO'
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_404:
+                  $ref: '#/components/examples/ERR_404'
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
+      x-validation-rules:
+      - name: VR_CS06_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS06_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS06_003
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS06_004
+        description: The server can't find the requested resource. Refer to ERR_404
+      x-permissions:
+      - product.configuration-service.setting.create
+      x-is-external: "true"
+      x-roles:
+      - IT_ADMIN
+      x-grpc:
+        serviceName: SettingService
+        methodName: delete
+  /system-settings:
+    get:
+      tags:
+      - System Setting
+      summary: List Settings
+      description: List Settings API allows get a paged result of settings.
+      operationId: API-CS02
+      parameters:
+      - name: category
+        in: query
+        required: false
+        schema:
+          type: string
+        example: category A
+      - name: page
+        in: query
+        description: The index of page (1..N)
+        schema:
+          type: integer
+          default: "1"
+      - name: size
+        in: query
+        description: The number of result in a page
+        schema:
+          type: integer
+          default: "10"
+      - name: sort
+        in: query
+        description: "To sort the results in descending or ascending order. Sorting\
+          \ criteria in the format: property(,asc|desc). Default sort order is ascending.\
+          \ Multiple sort criteria are supported."
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PagingInfoSystemSettingDTO'
+        "204":
+          description: No Content
+          content:
+            application/json: {}
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_415:
+                  $ref: '#/components/examples/ERR_415'
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
+      x-validation-rules:
+      - name: VR_CS02_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS02_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS02_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      x-permissions:
+      - product.configuration-service.setting.list
+      x-is-external: "true"
+      x-roles:
+      - IT_ADMIN
+      x-grpc:
+        serviceName: SettingService
+        methodName: list
+    post:
+      tags:
+      - System Setting
+      summary: Create System Setting
+      description: "Establishes system settings in batch to govern a collection of\
+        \ functions and microservices that are in use for the deliverable. Use for\
+        \ creating a new system setting, which controls the global behavior that can\
+        \ be applied to each microservice, such as organization-level override and\
+        \ user-level edits, report generation frequency, etc."
+      operationId: API-CS01
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemSettingCreateDTO'
+        required: true
+      responses:
+        "201":
+          description: Success response message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemSettingDTO'
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_0801:
+                  $ref: '#/components/examples/ERR_0801'
+                ERR_0803:
+                  $ref: '#/components/examples/ERR_0803'
+                CS_INVALID_DATA_TYPE:
+                  $ref: '#/components/examples/CS_INVALID_DATA_TYPE'
+                CS_VALUE_NOT_ALLOWED:
+                  $ref: '#/components/examples/CS_VALUE_NOT_ALLOWED'
+                CS_DUPLICATED_SYSTEM_SETTING_KEY:
+                  $ref: '#/components/examples/CS_DUPLICATED_SYSTEM_SETTING_KEY'
+        "415":
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+              examples:
+                ERR_415:
+                  $ref: '#/components/examples/ERR_415'
+        "401":
+          description: The request has not been applied because it lacks valid authentication
+            credentials for the target resource.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "401"
+                    message: The request has not been applied because it lacks valid
+                      authentication credentials for the target resource.
+        "403":
+          description: The server understood the request but refuses to authorize
+            it.
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "403"
+                    message: The server understood the request but refuses to authorize
+                      it.
+        "500":
+          description: The server encountered an unexpected condition that prevented
+            it from fulfilling the request..
+          content:
+            application/json:
+              schema:
+                example:
+                  errors:
+                  - code: "500"
+                    message: "Oops, something went wrong! Please contact the server\
+                      \ administrator."
+      x-validation-rules:
+      - name: VR_CS01_001
+        description: "The request lacks valid authentication credentials: blank authorization,\
+          \ missing authorization, expired user's tokenId. Refer to ERR_401."
+      - name: VR_CS01_002
+        description: Login user has no permission. Refer to ERR_403.
+      - name: VR_CS01_003
+        description: Invalid Content-Type value. Refer to ERR_415.
+      - name: VR_CS01_004
+        description: The server encountered an unexpected condition. Refer to ERR_500.
+      - name: VR_CS01_005
+        description: A mandatory field is null. Refer to ERR_0801
+      - name: VR_CS01_006
+        description: Field doesn't have the required length. Refer to ERR_0804.
+      - name: VR_CS01_007
+        description: Field doesn't have a valid range value. Refer to ERR_34802.
+      - name: VR_CS01_008
+        description: Field value doesn't match with the given dataType. Refer to CS_INVALID_DATA_TYPE.
+      - name: VR_CS01_009
+        description: Field value doesn't match with the allowedValues. Refer to CS_VALUE_NOT_ALLOWED.
+      - name: VR_CS01_010
+        description: System setting key is already taken. Refer to CS_DUPLICATED_SYSTEM_SETTING_KEY.
+      x-permissions:
+      - product.configuration-service.setting.create
+      x-is-external: "true"
+      x-roles:
+      - IT_ADMIN
       x-grpc:
         serviceName: com.brightinsight.platform.service.configuration.business.SystemSettingService
         methodName: create
 components:
   schemas:
-    ErrorDetail:
+    CategoryPartialDTO:
       type: object
       properties:
-        code:
-          type: string
-        field:
-          type: string
-        message:
-          type: string
-      x-examples:
-        example-1:
-          code: string
-          field: string
-          message: string
-    ErrorMessage:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorDetail'
-      description: The error message to display (to be modified by the developer for the application).
-    CategoryDTO:
-      required:
-        - name
-      type: object
-      properties:
-        categoryId:
+        id:
           type: string
           description: Category ID
+          format: uuid
           example: 05e78fe8-0742-11eb-adc1-0242ac120002
         name:
           type: string
@@ -577,35 +894,53 @@ components:
           type: string
           description: Category description
           example: description
-    Pageable:
+    CategoryDTO:
+      required:
+      - name
       type: object
       properties:
-        sort:
-          $ref: '#/components/schemas/Sort'
-        offset:
-          type: integer
-          format: int64
-        paged:
-          type: boolean
-        unpaged:
-          type: boolean
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-      description: Whether the category information displays in multiple pages.
-    Sort:
+        id:
+          type: string
+          description: Category ID
+          format: uuid
+          example: 05e78fe8-0742-11eb-adc1-0242ac120002
+        name:
+          type: string
+          description: Category name
+          example: name
+        description:
+          type: string
+          description: Category description
+          example: description
+    ErrorDetail:
       type: object
       properties:
-        sorted:
-          type: boolean
-        unsorted:
-          type: boolean
-        empty:
-          type: boolean
-      description: Sorting settings for the category.
+        code:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+    ErrorMessage:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+    CategoryUpdateDTO:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Category name
+          example: name
+        description:
+          type: string
+          description: Category description
+          example: description
     NavigationInfoCategoryDTO:
       type: object
       properties:
@@ -625,7 +960,6 @@ components:
           type: string
           description: url to get last page
           example: api/v2/entity?page=11&size=20
-      description: Links to navigation pages for the category.
     PagingInfoCategoryDTO:
       type: object
       properties:
@@ -640,24 +974,24 @@ components:
             $ref: '#/components/schemas/CategoryDTO'
         paging:
           $ref: '#/components/schemas/NavigationInfoCategoryDTO'
-      description: The pages to display for the category.
-    ResponseMessage:
+    CategoryCreateDTO:
+      required:
+      - name
       type: object
       properties:
-        success:
-          type: boolean
-      description: The response message to display (to be modified by developers for the application).
-    SystemSettingDTO:
+        name:
+          type: string
+          description: Category name
+          example: name
+        description:
+          type: string
+          description: Category description
+          example: description
+    SystemSettingUpdateDTO:
+      required:
+      - dataType
       type: object
       properties:
-        systemSettingId:
-          type: string
-          description: System Setting ID
-          example: 05e78fe8-0742-11eb-adc1-0242ac120002
-        key:
-          type: string
-          description: System Setting Key
-          example: REPORT_INTERVAL
         value:
           type: string
           description: System Setting Value
@@ -665,14 +999,14 @@ components:
         dataType:
           type: string
           description: System Setting Data Type
-          example: ENUMERATED
+          example: ENUMERATION
           enum:
-            - STRING
-            - INTEGER
-            - FLOAT
-            - BOOLEAN
-            - DATETIME
-            - ENUMERATION
+          - STRING
+          - INTEGER
+          - FLOAT
+          - BOOLEAN
+          - DATETIME
+          - DATE
         description:
           type: string
           description: System Setting Description
@@ -685,99 +1019,235 @@ components:
           type: array
           description: List of allowed values
           example:
-            - DAILY
-            - WEEKLY
-            - MONTHLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
           items:
             type: string
             description: List of allowed values
-            example: '["DAILY","WEEKLY","MONTHLY"]'
-      description: An ID for the category's system settings
+            example: "[\"DAILY\",\"WEEKLY\",\"MONTHLY\"]"
+        categories:
+          type: array
+          description: List of associated categories
+          example:
+          - 8ac14808-422a-11eb-b378-0242ac130002
+          - 8fab1d08-422a-11eb-b378-0242ac130002
+          items:
+            type: string
+            description: List of associated categories
+            format: uuid
+    SystemSettingDTO:
+      required:
+      - dataType
+      - key
+      type: object
+      properties:
+        id:
+          type: string
+          description: System Setting ID
+          format: uuid
+          example: 05e78fe8-0742-11eb-adc1-0242ac120002
+        key:
+          type: string
+          description: System Setting Key
+          example: REPORT_INTERVAL
+        value:
+          type: string
+          description: System Setting Value
+          example: WEEKLY
+        dataType:
+          type: string
+          description: System Setting Data Type
+          example: ENUMERATION
+          enum:
+          - STRING
+          - INTEGER
+          - FLOAT
+          - BOOLEAN
+          - DATETIME
+          - DATE
+        description:
+          type: string
+          description: System Setting Description
+          example: This setting changes the report generation frequency.
+        allowOverride:
+          type: boolean
+          description: System Setting Allow Override
+          example: false
+        allowedValues:
+          type: array
+          description: List of allowed values
+          example:
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          items:
+            type: string
+            description: List of allowed values
+            example: "[\"DAILY\",\"WEEKLY\",\"MONTHLY\"]"
+      description: this is the description on the schema
+    NavigationInfoSystemSettingDTO:
+      type: object
+      properties:
+        first:
+          type: string
+          description: url to get first page
+          example: api/v2/entity?page=1&size=20
+        previous:
+          type: string
+          description: url to get previous page
+          example: api/v2/entity?page=4&size=20
+        next:
+          type: string
+          description: url to get next page
+          example: api/v2/entity?page=6&size=20
+        last:
+          type: string
+          description: url to get last page
+          example: api/v2/entity?page=11&size=20
+    PagingInfoSystemSettingDTO:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          description: Total results count
+          format: int64
+          example: 215
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemSettingDTO'
+        paging:
+          $ref: '#/components/schemas/NavigationInfoSystemSettingDTO'
+    SystemSettingCreateDTO:
+      required:
+      - dataType
+      - key
+      type: object
+      properties:
+        key:
+          type: string
+          description: System Setting Key
+          example: REPORT_INTERVAL
+        value:
+          type: string
+          description: System Setting Value
+          example: WEEKLY
+        dataType:
+          type: string
+          description: System Setting Data Type
+          example: ENUMERATION
+          enum:
+          - STRING
+          - INTEGER
+          - FLOAT
+          - BOOLEAN
+          - DATETIME
+          - DATE
+        description:
+          type: string
+          description: System Setting Description
+          example: This setting changes the report generation frequency.
+        allowOverride:
+          type: boolean
+          description: System Setting Allow Override
+          example: false
+        allowedValues:
+          type: array
+          description: List of allowed values
+          example:
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          items:
+            type: string
+            description: List of allowed values
+            example: "[\"DAILY\",\"WEEKLY\",\"MONTHLY\"]"
+        categories:
+          type: array
+          description: List of associated categories
+          example:
+          - 8ac14808-422a-11eb-b378-0242ac130002
+          - 8fab1d08-422a-11eb-b378-0242ac130002
+          items:
+            type: string
+            description: List of associated categories
+            format: uuid
   examples:
     ERR_415:
       summary: ERR_415
       description: Content-type header is missing or is different to application/json
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_415",
-              "message": "Unsupported media type."
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_415\",\n      \"message\"\
+        : \"Unsupported media type.\"\n    }\n  ]\n}"
     ERR_400:
       summary: ERR_400
-      description: The server cannot or will not process the request due to something that is perceived to be a client error
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_400",
-              "message": "Could not resolve property: page."
-            }
-          ]
-        }
+      description: The server cannot or will not process the request due to something
+        that is perceived to be a client error
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_400\",\n      \"message\"\
+        : \"Could not resolve property: page.\"\n    }\n  ]\n}"
     ERR_404:
       summary: ERR_404
       description: The server cannot found any result
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_404",
-              "message": "{0} is not found!"
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_404\",\n      \"message\"\
+        : \"{0} is not found!\"\n    }\n  ]\n}"
     ERR_0801:
       summary: ERR_0801
       description: Field is required
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_0801",
-              "field": "{0}",
-              "message": "{0} is required."
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_0801\",\n      \"field\"\
+        : \"{0}\",\n      \"message\": \"{0} is required.\"\n    }\n  ]\n}"
     ERR_0803:
       summary: ERR_0803
       description: The server will not process the request due to a invalid zip format
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_0803",
-              "field": "{0}",
-              "message": "{0} cannot be longer than 255 characters."
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_0803\",\n      \"field\"\
+        : \"{0}\",\n      \"message\": \"{0} cannot be longer than 255 characters.\"\
+        \n    }\n  ]\n}"
+    ERR_0804:
+      summary: ERR_0804
+      description: The server will not process the request due to a invalid field
+        length
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_0804\",\n      \"field\"\
+        : \"{0}\",\n      \"message\": \"value must be between {0} and {1}.\"\n  \
+        \  }\n  ]\n}"
     ERR_0844:
       summary: ERR_0844
       description: The server will not process the request due to a field restriction
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_0844",
-              "message": "Field {0} or {1} is required, please provide one of them; they are mutually exclusive"
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_0844\",\n      \"message\"\
+        : \"Field {0} or {1} is required, please provide one of them; they are mutually\
+        \ exclusive\"\n    }\n  ]\n}"
     ERR_34802:
       summary: ERR_34802
       description: Invalid setting range high
-      value: |-
-        {
-          "errors": [
-            {
-              "code": "ERR_34802",
-              "field": "{0}",
-              "message": "{0} is not higher than setting range low"
-            }
-          ]
-        }
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"ERR_34802\",\n      \"\
+        field\": \"{0}\",\n      \"message\": \"{0} is not higher than setting range\
+        \ low\"\n    }\n  ]\n}"
+    CS_DUPLICATED_CATEGORY_NAME:
+      summary: CS_DUPLICATED_CATEGORY_NAME
+      description: The value in category name is already in use by another Category.
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"CS_DUPLICATED_CATEGORY_NAME\"\
+        ,\n      \"field\": \"{0}\",\n      \"message\": \"The value {0} for category\
+        \ name is already in use.\"\n    }\n  ]\n}"
+    CS_DUPLICATED_SYSTEM_SETTING_KEY:
+      summary: CS_DUPLICATED_SYSTEM_SETTING_KEY
+      description: The value in system setting key is already in use by another system
+        setting.
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"CS_DUPLICATED_SYSTEM_SETTING_KEY\"\
+        ,\n      \"field\": \"{0}\",\n      \"message\": \"The value {0} for system\
+        \ setting key is already in use.\"\n    }\n  ]\n}"
+    CS_FIELD_CONDITIONALLY_REQUIRED:
+      summary: CS_FIELD_CONDITIONALLY_REQUIRED
+      description: The field must not be empty given a condition.
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"CS_FIELD_CONDITIONALLY_REQUIRED\"\
+        ,\n      \"field\": \"{0}\",\n      \"message\": \"The {1} must not be empty\
+        \ when {2} is equals to {3}\"\n    }\n  ]\n}"
+    CS_INVALID_DATA_TYPE:
+      summary: CS_INVALID_DATA_TYPE
+      description: The value doesn't match with the expected dataType.
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"CS_INVALID_DATA_TYPE\"\
+        ,\n      \"field\": \"{0}\",\n      \"message\": \"{4} in field value doesnt\
+        \ match dataType\"\n    }\n  ]\n}"
+    CS_VALUE_NOT_ALLOWED:
+      summary: CS_VALUE_NOT_ALLOWED
+      description: The value doesn't match with the allowedValues.
+      value: "{\n  \"errors\": [\n    {\n      \"code\": \"CS_VALUE_NOT_ALLOWED\"\
+        ,\n      \"field\": \"value\",\n      \"message\": \"The value {3} in field\
+        \ value does not match with allowedValues\"\n    }\n  ]\n}"
