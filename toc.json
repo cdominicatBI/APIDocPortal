@@ -37,7 +37,7 @@
      {
       "type": "item",
       "title": "Access Control Service API",
-      "uri": "AccessControlServiceYAML.yml"
+      "uri": "reference/AccessControlServiceYAML.yml"
     }
   ]
 }
