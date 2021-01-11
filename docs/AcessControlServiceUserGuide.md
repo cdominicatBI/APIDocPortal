@@ -37,7 +37,7 @@ The diagram below illustrates the Access Control Service architecture:
 
 ## APIs in This Set
 
-The endpoints of this microservice are summarized below. To learn more about a specific API, follow the link in the left column. 
+The endpoints of the [Access Control Service API](reference/AccessControlServiceYAML.yml) are summarized below. 
 
 ### Permissions APIs
 
