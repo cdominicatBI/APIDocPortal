@@ -23,7 +23,9 @@ The diagram below illustrates the User Management Service architecture:
 
 ## APIs in This Set
 
-The endpoints of this microservice are summarized below. To learn more about a specific API, follow the link in the left column. 
+The endpoints of this microservice are summarized below. 
+
+To see the API itself, see [User Management Service API](reference/UserManagementServiceYAML.yml).
 
 ### User Onboarding APIs
 

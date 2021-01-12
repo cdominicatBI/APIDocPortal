@@ -24,7 +24,9 @@ The functionality rules below govern behavior for all APIs in this set.
 8.	All data in the system can be cached in memory except for user overrides, which will be fetched from the database.
 
 ## APIs in This Set
-The endpoints of the Configuration Service are summarized below. To learn more about a specific API, follow the link in the left column.
+The endpoints of the Configuration Service are summarized below. 
+
+To see the API itself, see [Organization Service API](reference/OrganizationServiceYAML.yml).
 
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------

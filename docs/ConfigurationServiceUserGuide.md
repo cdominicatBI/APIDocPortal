@@ -19,7 +19,8 @@ The architecture above enables the BrightInsight developer to configure system s
 
 ## APIs in This Set
 The endpoints of the Configuration Service are summarized below. 
-To see the API itself, see [Configuration Service API](reference/ConfigurationServiceAPI.yml)
+
+To see the API itself, see [Configuration Service API](reference/ConfigurationServiceYAML.yml).
 
 ### System Settings APIs
 

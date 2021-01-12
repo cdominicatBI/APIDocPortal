@@ -39,6 +39,8 @@ The diagram below illustrates the Access Control Service architecture:
 
 The endpoints of the [Access Control Service API](reference/AccessControlServiceYAML.yml) are summarized below. 
 
+To see the API itself, see [Access Control Service API](reference/AccessControlServiceYAML.yml).
+
 ### Permissions APIs
 
 These APIs enable the application developer to configure permissions.
