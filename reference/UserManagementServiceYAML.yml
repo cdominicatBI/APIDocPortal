@@ -1,22 +1,23 @@
 openapi: 3.0.1
 info:
   title: User Management Service
-  description:  User Management Service APIs govern the creation of end-users in\
-    \ the application, including how they are invited to use it, and once \
-    \ they are onboarded, these APIs also control how users can update their \
-    \ passwords and profile information. Developers use these APIs to configure \
-    \ and adjust three types of functionality:\
-    \ 1) User Provisioning: the assignment of user roles to an end-user of a \
-    \ microservice.\
-    \  2) User Onboarding: the process of inviting an end-user to access and \
-    \ register for the microservice, and managing invitation status.\
-    \ 3) Password and Profile Management: enables user to change and reset \
-    \ passwords and profile info and  governs password expiration behavior.\
-    \ These APIs allow application developers to easily set behavior for user \
-    \ management independently of other APIs, ensuring good and consistent \
-    \ end-user experiences. Developers typically provide the initial \
-    \ configuration and these remain in place once they have been tested and \
-    \ put into production.\
+  description:  User Management Service APIs govern the creation of end-users in
+    the application, including how they are invited to use it, and once 
+    they are onboarded, these APIs also control how users can update their 
+    passwords and profile information. Developers use these APIs to configure 
+    and adjust three types of functionality:
+      
+    1) User Provisioning: the assignment of user roles to an end-user of a 
+    microservice.
+    2) User Onboarding: the process of inviting an end-user to access and 
+    register for the microservice, and managing invitation status.
+    3) Password and Profile Management: enables user to change and reset 
+    passwords and profile info and  governs password expiration behavior.
+    These APIs allow application developers to easily set behavior for user 
+    management independently of other APIs, ensuring good and consistent 
+    end-user experiences. Developers typically provide the initial 
+    configuration and these remain in place once they have been tested and 
+    put into production.
   version: 1.0.0
   x-safety-class: C
   x-safety-class-description: "the loss of the primary function of the User Schedule\
