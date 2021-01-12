@@ -18,18 +18,72 @@ The architecture above enables the BrightInsight developer to configure system s
 **See Also**: [API Terminology](../docs/API-Terminology.md)
 
 ## APIs in This Set
-The endpoints of the Configuration Service are summarized below. To learn more about a specific API, follow the link in the left column.
+The endpoints of the Configuration Service are summarized below. 
+To see the API itself, see [Configuration Service API](reference/ConfigurationServiceAPI.yml)
 
 ### System Settings APIs
 
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
-API-OS01	| Create Organization	| POST /organizations	| Establishes a new organization as a parent or as a child to another organization.	| Creating a new organization, setting it as active or inactive, and describing it.
-API-OS02	| List Organizations	| GET /organizations/{id}	| Fetches a paged list of organizations defined for the system.	| Looking up all organizations. 
-API-OS03 | Get Organization	| GET /organizations/{id}	| Fetches an organization. | Looking up settings for a single organization.
-API-OS04	| Update Organization	| PUT /organizations/{id}	| Changes settings for an organization.	| Modifying settings for an organization, such as active/inactive status.
-API-OS05	| Patch Organization	| PATCH/ organizations/{id}	| Change specific settings for an organization.	| Modifying particular settings for an organization.
-API-OS06	| Delete Organization	| DELETE /organizations/{id}	| Removes an organization from the system.	| Deleting an organization (without removing end-users assigned to that organization).
-API-OS07	| List Child Organizations	| GET /organizations/{id}/children	| Fetches a list of child organizations under an organization.	| Looking up the organizations that are descendants of an organization.
+CS-01 	|Create System Setting| POST /system-settings	| Establishes system settings in batch for related functions and microservices in use for the deliverable. |	Setting global behavior that can be applied to each microservice, such as organization-level override and user-level edits.
+CS-02	|List System Settings	| GET /system-settings	| Fetches settings for the system.	| Looking up settings at the system level, agnostic of categories, organizations, and users that may be associated with them.
+CS-03	| Get System Settings	| GET /system-settings/{{systemSettingId}}	| Fetches a single system setting. 	| Looking up a single setting.
+CS-04	| Update System Setting	| PUT /system-settings/{{systemSettingId}} | Changes settings for the system	| Modifying behavior settings for entire system, affecting all associated categories, organizations, and users.
+CS-05	| Patch System Settings	| PATCH /system-settings/{{systemSettingId}}	| Updates particular settings for the system		| Updates particular system settings without updating all settings.
+CS-06	| Delete System Settings	| DELETE /system-settings/{{systemSettingId}}	| Removes settings for the system		| Removing settings at the system level, affecting all associated categories, organizations, and users.
+
+
+### Category APIs
+
+API Code	| API Name	| URL	| How it works	| Use for
+----------|-----------|---------|-------------|---------
+CS-07	| Create System Settings Category	| POST /categories | Establishes a category to which system settings can be assigned.	| Categorizing system settings to make them easier to administer.
+CS-08	| List System Settings Category	| GET /categories	| Fetches all settings under a category (including overridden values for the organization and the organization defaults)	| Looking up behavior settings associated with a particular category. 
+CS-09	| Get System Settings Category	| GET /categories/{{categoryId}}	| Fetches multiple settings under a category (including overridden values for the organization and the organization defaults)	| Looking up the behavior settings that are associated with a category.
+CS-10	| Update System Settings Category	PUT /categories/{{categoryId}}	| Changes settings under a category	| Modifying which behavior settings are associated with a particular category. 
+CS-11	| Patch System Categories	| PATCH /categories/{{categoryId}}	| Updates particular settings for the system		| Updates particular categories without updating all categories.
+CS-12	| Delete System Category	| DELETE /categories/{{categoryId}}	| Removes a category setting	| Deleting a category of settings.
+
+### Organization-to-Category APIs
+
+API Code	| API Name	| URL	| How it works	| Use for
+----------|-----------|---------|-------------|---------
+CS-13  | Add Organization to Category	| POST /categories/{{categoryId}}/organization/{{organizationId}}	| Adds an organization to a settings category 	|  Associating an organization with a system settings category so that those settings can be applied to that organization.
+CS-14	| Remove Organization  from Category	| DELETE /categories/{{categoryId}}/organization/{{organizationId}} 	| Deleting an organization from a system settings category so that those settings are no longer applicable to the organization. 	| Disassociating an organization from a system settings category.
+
+### Organization Settings APIs
+API Code	| API Name	| URL	| How it works	| Use for
+----------|-----------|---------|-------------|---------
+CS-15	| Get Organization Settings 	| GET /organization-settings?&category=<categoryName>&organizationId=<organizationId>	|  Retrieve a list of system settings associated with an organization, by organization ID. 	|  Looking up which settings are associated with an organization.
+
+### User Settings APIs 
+API Code	| API Name	| URL	| How it works	| Use for
+----------|-----------|---------|-------------|---------
+CS-16	| Create User Settings	| POST /user-settings	| TBD	| TBD
+CS-17	| Get User Settings	| GET /user-settings?user-did=<userDid>&category=<categoryName>&organizationId=<organizationId> 	| Retrieve a  list of settings associated with a User, by ID, optionally filtered by system settings category. 	| Looking up which settings are associated with a specific user.
+
+**Note**: *How Categories and System Settings are Related*:
+- GET /categories/{{categoryId}}/system-settings  - List all system settings in category
+- POST/PUT(?)  /categories/{{categoryId}}/system-settings/{{systemSettingId}} - Create relationship between categorey and system setting
+- DELETE  /categories/{{categoryId}}/system-settings/{{systemSettingId}} - Delete relationship between categorey and system setting
+
+**Tip**: Batch save for multiple system settings to a category
+
+**JSON example**:
+
+{
+
+  "systemSettingId":"dfd57057-7f76-44cf-883c-82b41d87a04a", 
+
+  "key":"SEND_REPORT", //Unique, not null 
+
+  "value":"true", //not null /
+
+  "dataType":"BOOLEAN", //not null can be any of this: STRING, INTEGER, FLOAT, BOOLEAN, DATETIME, ENUMERATION /ion", //optional 
+
+  "allowOverride":false //default false 
+
+}
+
 
 **Next:** [See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
