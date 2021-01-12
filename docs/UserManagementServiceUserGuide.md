@@ -1,4 +1,4 @@
-# UserManagementServiceUserGuide
+# User Management Service User Guide
 
 This overview explains how to use the [User Management Service API](reference/UserManagementServiceAPI.yml) when configuring a deliverable, and is intended for application developers who are using this microservice to build a custom application.
 What is the User Management Service?
