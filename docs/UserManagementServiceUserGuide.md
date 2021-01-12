@@ -44,29 +44,7 @@ These APIs enable the end-user to change and reset passwords, edit profile info,
 
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
-API-UM6	| Update User Profile
-
-PUT /users/{user-id}	|  Allows an end-user to change his or her profile.
-
-Enabling users to edit their profiles.
-
-API-UM7
-
-Change Password
-
-POST /change-password
-
-Allows an end-user to change his or her password.
-
-Enabling users to change their passwords.
-
-API-UM8
-
-Reset Password
-
-POST /reset-password
-
-Lets a user change the password when current password is unknown (forgotten, for example).
-Note:  Resetting a password differs from changing a password. The Change Password API expects to receive both the current and new passwords in the request payload (which means the user must know current password, but wants to change it). Reset password will let a user change the password when current password is unknown (forgotten, for example).
-
-Enabling users to enter a new password without having to enter the old one.
+API-UM6	| Update User Profile	| PUT /users/{user-id}	|  Allows an end-user to change his or her profile.	| Enabling users to edit their profiles.
+API-UM7	| Change Password	| POST /change-password	| Allows an end-user to change his or her password.	| Enabling users to change their passwords.
+API-UM8	| Reset Password	| POST /reset-password	| Lets a user change the password when current password is unknown (forgotten, for example).	| Enabling users to enter a new password without having to enter the old one.
+**Note**:  Resetting a password differs from changing a password. The Change Password API (API-UM7) expects to receive both the current and new passwords in the request payload (which means the user must know current password, but wants to change it). Reset password will let a user change the password when current password is unknown (forgotten, for example).
