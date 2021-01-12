@@ -30,7 +30,7 @@ The endpoints of the Configuration Service are summarized below. To learn more a
 
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
-CS-01	| Create System Setting| POST /system-settings	| Establishes system settings in batch for related functions and microservices in use for the deliverable. |	Setting global behavior that can be applied to each microservice, such as organization-level override and user-level edits.
+CS-01 	|Create System Setting| POST /system-settings	| Establishes system settings in batch for related functions and microservices in use for the deliverable. |	Setting global behavior that can be applied to each microservice, such as organization-level override and user-level edits.
 CS-02	|List System Settings	| GET /system-settings	| Fetches settings for the system.	| Looking up settings at the system level, agnostic of categories, organizations, and users that may be associated with them.
 CS-03	| Get System Settings	| GET /system-settings/{{systemSettingId}}	| Fetches a single system setting. 	| Looking up a single setting.
 CS-04	| Update System Setting	| PUT /system-settings/{{systemSettingId}} | Changes settings for the system	| Modifying behavior settings for entire system, affecting all associated categories, organizations, and users.
