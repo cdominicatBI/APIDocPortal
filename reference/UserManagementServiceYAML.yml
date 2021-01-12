@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: User Management Service
-  description:  User Management Service APIs govern the creation of end-users in\
-    \ the application, including how they are invited to use it, and once \
+  description:  "User Management Service APIs govern the creation of end-users \
+    \ in the application, including how they are invited to use it, and once \
     \ they are onboarded, these APIs also control how users can update their \
-    \ passwords and profile information. Developers use these APIs to configure \
+    \ passwords and profile info. Developers use these APIs to configure \
     \ and adjust three types of functionality:\
     \ 1) User Provisioning: the assignment of user roles to an end-user of a \
     \ microservice.\
@@ -16,7 +16,7 @@ info:
     \ management independently of other APIs, ensuring good and consistent \
     \ end-user experiences. Developers typically provide the initial \
     \ configuration and these remain in place once they have been tested and \
-    \ put into production.\
+    \ put into production.</p>"
   version: 1.0.0
   x-safety-class: C
   x-safety-class-description: "the loss of the primary function of the User Schedule\
