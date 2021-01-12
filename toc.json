@@ -49,6 +49,11 @@
       "type": "item",
       "title": "Notification Service API",
       "uri": "reference/NotificationServiceYAML.yml"
+    },
+    {
+      "type": "item",
+      "title": "User Management Service API",
+      "uri": "reference/UserManagementServiceYAML.yml"
     }
   ]
 }
