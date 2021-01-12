@@ -31,6 +31,11 @@
       "uri": "docs/NotificationServiceUserGuide.md"
     },
     {
+      "type": "item",
+      "title": "User Management Service API User Guide",
+      "uri": "docs/UserManagementServiceUserGuide.md"
+    },
+    {
       "type": "divider",
       "title": "APIS"
     },
