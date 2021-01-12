@@ -1,7 +1,8 @@
 # User Management Service User Guide
 
 This overview explains how to use the [User Management Service API](reference/UserManagementServiceAPI.yml) when configuring a deliverable, and is intended for application developers who are using this microservice to build a custom application.
-What is the User Management Service?
+
+## What is the User Management Service?
 Essentially, User Management Service APIs govern the creation of end-users in the Customer application including how they are invited to use it, and once they are onboarded, these APIs also control how they can update their passwords and profile information.  BrightInsight developers use them to configure and adjust three types of functionality:
 
 1. **User Provisioning**: the assignment of user roles to an end-user of a microservice.
@@ -16,7 +17,7 @@ This allows application developers to easily set behavior for user management in
 
 The diagram below illustrates the User Management Service architecture:
 
-![Functional Heirarchy Diagram](../assets/images/assets/UserManagementSVCArch.png)
+![Functional Heirarchy Diagram](../assets/images/UserManagementSVCArch.png)
 
 **See Also**: [API Terminology](../docs/API-Terminology.md)
 
