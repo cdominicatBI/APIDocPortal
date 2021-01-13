@@ -358,8 +358,7 @@ paths:
       tags:
       - Role
       summary: Add permissions to role
-      description: Add permissions to an existing role API allows adding permissions
-        to an existing role.
+      description: Allows adding permissions to an existing role.
       operationId: API-ACS09
       parameters:
       - name: id
