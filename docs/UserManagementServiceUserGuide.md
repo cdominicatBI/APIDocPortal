@@ -34,13 +34,12 @@ These APIs enable the customer application to invite end-users to access the app
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
 API-UM1	| Invite User For Registration	| POST /invitations/user-registration	| Generates an invitation in the system. This invitation will allow the invitee to act on it and sign up as a user in the BI platform.	| Inviting end-users to access and register with the customer application, such as inviting someone to join a clinical trial study.
-API-UM10	| Resend User/Verify User	| POST /users/verify	| Prompts the user to verify the account.	| Send or resend a user an email to verify the account (for example, in case the first email expired).	
 API-UM2	| Accept User Registration Invitation	| POST /invitations/user-registration/{invitation-code}/action?action={action}	| Acts on an existing invitation so the end-user gets provisioned in the platform.	| Provisioning new end-users so they can use the customer application.
 API-UM3	| Extend Invitation	| PUT /invitations/{invitation-code}/extend	| Extends an invitation by recalculating the expiration date of the invitation.	| Extending the end-date of the invitation to give the end-user more time to accept it.
 API-UM4	| Get Invitation	| GET /invitations?invitation-id={invitation-id}&code={code}&status={status}&role-name={role-name}&org-id={org-id}&expire-date-from={expire-date-from}&expire-date-to={expire-date-to}&accepted-date-from={accepted-date-from}&accepted-date-to={accepted-date-to}	| Queries information on invitation requests.	| Looking up the status of invitations.
 API-UM5	| Cancel Invitation	| DELETE /invitations/{invitation-code}	| Changes the invitation status to CANCELLED.	| Cancelling an invitation so a user can no longer access the customer application to register.
 API-UM9	| Create User	| POST /users	| Creates a user in the system.	| Creating new users.	
-API-UM10	| Verify User	| POST /users/verify	|  Initiates the account verification email or resends it in case the email was expired.| Sending or resending an account verification email to verify the user's account.
+API-UM10	| Resend User/Verify User	| POST /users/verify	| Prompts the user to verify the account.	| Send or resend a user an email to verify the account (for example, in case the first email expired).
 
 ### Password and Profile Management APIs
 
