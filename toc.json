@@ -1,6 +1,10 @@
 {
   "items": [   
     {
+      "type": "divider",
+      "title": "Getting Started"
+    },
+    {
       "type": "item",
       "title": "How BrightInsight APIs are Organized",
       "uri": "docs/HowBrightInsightAPIsareOrganized.md"
@@ -9,6 +13,10 @@
       "type": "item",
       "title": "API Terminology",
       "uri": "docs/API-Terminology.md"
+    },
+    {
+      "type": "divider",
+      "title": "User Guides"
     },
     {
       "type": "item",
