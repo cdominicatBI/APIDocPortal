@@ -11,7 +11,7 @@ Elements of BrightInsight REST APIs that provide controls and functionality.
 ## API Users
 BrightInsight APIs are typically used by the BrightInsight Delivery team, including application developers, solution architects, and software architects.
 ##End-Users
-Beople who use the customer solution, such as the software interface for a device or app that has been built using BrightInsight APIs. These may include:
+People who use the customer solution, such as the software interface for a device or app that has been built using BrightInsight APIs. These may include:
 
   - **Customers** of BrightInsight (such as a pharma company)
   - **Partners** (the customer or partner of the Customer, such as an Employer, Trial Site, Clinic)
