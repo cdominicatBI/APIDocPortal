@@ -48,10 +48,9 @@ These APIs enable the application developer to configure permissions.
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
 API-ACS01	| Create Permissions	| POST /permissions	| product.plt.access.control.service.permission.create	| Enables the creation of new permissions, which can be mapped to predefined user role(s).	| Enabling a user to create new permissions (based on a predefined permissions template). 
-API-ACS02	| Create Role	| POST /roles	| product.plt.access.control.service.role.create	| 
-Enables the creation of a new user role, including role name, description, multi-factor authentication, location, and a list of permissions.	| Enabling a user to create a new user role. 
+API-ACS02	| Create Role	| POST /roles	| product.plt.access.control.service.role.create	| Enables the creation of a new user role, including role name, description, multi-factor authentication, location, and a list of permissions.	| Enabling a user to create a new user role. 
 API-ACS03	| Update Roles	| PUT /roles	| product.plt.access.control.service.role.update	| Enables updates to any field for an existing user role, by first checking that the role exists, and then validating all required information.	| Enabling a user to update data for a user role.	
-API-CS09	| POST /roles	| product.plt.access.control.service.role.add.permissions	| Enables a user to add permissionsto an existing role.	| Enabling a user to add more permissions to an existing role.
+API-CS09	| Add Permissions	| POST /roles	| product.plt.access.control.service.role.add.permissions	| Enables a user to add permissions to an existing role.	| Enabling a user to add more permissions to an existing role.
 
 ### Consent Management APIs
 
