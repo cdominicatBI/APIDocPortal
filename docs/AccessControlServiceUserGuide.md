@@ -1,4 +1,4 @@
-*# Access Control Service User Guide
+# Access Control Service User Guide
 
 This overview explains how to use the [Access Control Service API](reference/AccessControlServiceYAML.yml) when configuring a deliverable. 
 
