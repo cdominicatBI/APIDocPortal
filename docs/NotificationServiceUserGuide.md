@@ -1,6 +1,6 @@
 # Notification Service User Guide
 
-This overview explains how to use the [Organization Service API](reference/NotificationServiceAPI.yml) when configuring a deliverable. 
+This overview explains how to use the [Organization Service API](reference/NotificationServiceAPI.yml) as part of an application. 
 
 # What is the Organization Service?
 "Notification Service APIs facilitate communication from BrightInsight microservices\
@@ -9,6 +9,8 @@ This overview explains how to use the [Organization Service API](reference/Notif
     \ storage of data and user settings or preferences.\"
 
 ## How Does the Notification Service Work?
+This service is designed to operate independently of other BrightInsight microservices: it contains all the settings and templates necessary for configuring and managing notifications to end-users. You can configure this service to communicate with other microservices in the application you are developing, and establish behavior for how messages are triggered, customized, stored, re-sent upon failure, and how user's communication channel preferences and settings are stored, saved, and updated. Some key concepts to the functionality of this microservice are detailed below. 
+
 *A notification template* (cached in memory for faster access) defines how a message will appear in SMS, Email, and in App Notifications. The service supports the management of multiple templates. These templates retrieve User Profile and User’s Organization and replace variables in the template, in order to customize messages for individual users. 
 
 *A notification event* uses the notification template to send a notification when the event happens. The service supports the management of multiple events. This enables all BrightInsight microservices to the communicate with the Notification service and send messages to users. 
