@@ -4,7 +4,7 @@ This overview explains how to use the [Configuration Service API](reference/Conf
 
 ## What is the Configuration Service?
 
-Essentially, Configuration Service APIs are a mesh of policies governing functionality and microservices in a customer solution. BrightInsight developers use them to configure and adjust the behavior of functionality and independent microservices as they are packaged for a deliverable, controlling how those objects communicate with each other and external systems. This allows them to easily implement permissions and data policies mapped directly to application behavior outcomes, ensuring good end-user experiences. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
+Essentially, Configuration Service APIs are a mesh of policies governing functionality and microservices in a customer solution. Application developers use them to configure and adjust the behavior of functionality and independent microservices as they are packaged for an application, controlling how those objects communicate with each other and external systems. This allows them to easily implement permissions and data policies mapped directly to application behavior outcomes, ensuring good end-user experiences. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
 
 The Configuration Service enables preferences and settings for system functionality and microservices to be handled at a global level. Some Configuration Service APIs are External (exposed to the internet via APIgee), while others are Internal (only called by other BrightInsight microservices).
 
@@ -28,22 +28,22 @@ API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
 CS-01 	|Create System Setting| POST /system-settings	| Establishes system settings in batch for related functions and microservices in use for the deliverable. |	Setting global behavior that can be applied to each microservice, such as organization-level override and user-level edits.
 CS-02	|List System Settings	| GET /system-settings	| Fetches settings for the system.	| Looking up settings at the system level, agnostic of categories, organizations, and users that may be associated with them.
-CS-03	| Get System Settings	| GET /system-settings/{{systemSettingId}}	| Fetches a single system setting. 	| Looking up a single setting.
-CS-04	| Update System Setting	| PUT /system-settings/{{systemSettingId}} | Changes settings for the system	| Modifying behavior settings for entire system, affecting all associated categories, organizations, and users.
+CS-03	| Get System Settings	| GET /system-settings/{id}	| Fetches a single system setting. 	| Looking up a single setting.
+CS-04	| Update System Setting	| PUT /system-settings/{id} | Changes settings for the system	| Modifying behavior settings for entire system, affecting all associated categories, organizations, and users.
 CS-05	| Patch System Settings	| PATCH /system-settings/{{systemSettingId}}	| Updates particular settings for the system		| Updates particular system settings without updating all settings.
-CS-06	| Delete System Settings	| DELETE /system-settings/{{systemSettingId}}	| Removes settings for the system		| Removing settings at the system level, affecting all associated categories, organizations, and users.
+CS-06	| Delete Setting	| DELETE /system-settings/{id}	| Removes settings for the system		| Removing settings at the system level, affecting all associated categories, organizations, and users.
 
 
 ### Category APIs
 
 API Code	| API Name	| URL	| How it works	| Use for
 ----------|-----------|---------|-------------|---------
-CS-07	| Create System Settings Category	| POST /categories | Establishes a category to which system settings can be assigned.	| Categorizing system settings to make them easier to administer.
-CS-08	| List System Settings Category	| GET /categories	| Fetches all settings under a category (including overridden values for the organization and the organization defaults)	| Looking up behavior settings associated with a particular category. 
-CS-09	| Get System Settings Category	| GET /categories/{{categoryId}}	| Fetches multiple settings under a category (including overridden values for the organization and the organization defaults)	| Looking up the behavior settings that are associated with a category.
-CS-10	| Update System Settings Category	PUT /categories/{{categoryId}}	| Changes settings under a category	| Modifying which behavior settings are associated with a particular category. 
-CS-11	| Patch System Categories	| PATCH /categories/{{categoryId}}	| Updates particular settings for the system		| Updates particular categories without updating all categories.
-CS-12	| Delete System Category	| DELETE /categories/{{categoryId}}	| Removes a category setting	| Deleting a category of settings.
+CS-07	| Create Category	| POST /categories | Establishes a category to which system settings can be assigned.	| Categorizing system settings to make them easier to administer.
+CS-08	| List Categories	| GET /categories	| Fetches all settings under a category (including overridden values for the organization and the organization defaults)	| Looking up behavior settings associated with a particular category. 
+CS-09	| Update Category	PUT /categories/{id}	| Changes settings under a category	| Modifying which behavior settings are associated with a particular category. 
+CS-10	| Update Category	|	PUT /categories/{id}	| Changes category information	| Modifying information for a category. 
+CS-11	| Patch System Categories	| PATCH /categories/{id}	| Updates particular settings for the system	| Updates particular categories without updating all categories.
+CS-12	| Delete System Category	| DELETE /categories/{id}	| Removes a category setting	| Deleting a category of settings.
 
 ### Organization-to-Category APIs
 
