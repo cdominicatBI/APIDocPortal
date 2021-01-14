@@ -8,7 +8,7 @@ REST, [Representational State Transfer](http://www.ics.uci.edu/~fielding/pubs/di
 
 ## How Is Information Organized in BrightInsight APIs?
 
-In Swagger, APIs are listed by method, URL, and then title. Each method is color-coded, and when you click on it, the details expand below. Often BrightInsight APIs are grouped in sections to help you find what you need. These display in the code as “tags.”
+Each API is organized by method, URL, and then title. Each method is color-coded, and when you click on it, the details expand below. Often BrightInsight APIs are grouped in sections to help you find what you need. These display in the code as “tags.”
 
 ### Parameters, Responses, and Extensions
 
