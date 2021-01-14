@@ -8,7 +8,7 @@ REST, [Representational State Transfer](http://www.ics.uci.edu/~fielding/pubs/di
 
 ## How Is Information Organized in BrightInsight APIs?
 
-Each API is organized by method, URL, and then title. Each method is color-coded, and when you click on it, the details expand below. Often BrightInsight APIs are grouped in sections to help you find what you need. These display in the code as “tags.”
+In Swagger, APIs are listed by method, URL, and then title. Each method is color-coded, and when you click on it, the details expand below. Often BrightInsight APIs are grouped in sections to help you find what you need. These display in the code as “tags.”
 
 ### Parameters, Responses, and Extensions
 
@@ -38,4 +38,6 @@ Compliant with the OAS 3.0 specification, BrightInsight APIs organize the follow
 - [ ] callbacks
 - [ ] schemas
 
-**Tip:** Swagger is simply a way to view an API, it is actually the specification on which the API code is built. You can view APIs in many applications that use the same format spec. and simply *consume* the YAML. BrightInsight Platform 2.0 APIs are presented in Stoplight, which is a web application that works very much like Swagger and also allows you to export the API in YAML to use for application development. If you choose to download our APIs and then view them instead in Swagger, note that the *Components* section displays at the bottom of the Swagger display in grey. 
+**Tip:** Swagger is simply a way to view an API, it is actually the specification on which the API code is built. You can view APIs in many applications that use the same format spec. and simply *consume* the YAML. BrightInsight Platform 2.0 APIs are presented in Stoplight, which is a web application that works very much like Swagger and also allows you to export the API in YAML to use for application development. 
+![Stoplight Export Button](../assets/images/ExportfromStoplight.png)
+If you choose to download our APIs and then view them instead in Swagger, note that the *Components* section displays at the bottom of the Swagger display in grey. 
