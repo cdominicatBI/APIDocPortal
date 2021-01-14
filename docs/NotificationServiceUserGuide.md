@@ -24,11 +24,10 @@ To see the API itself, see [Notification Service API](reference/NotificationServ
 
 API Code	| API Name	| URL   	|How it works	| Use for
 ----------|-----------|---------|-------------|---------
-NS01	| Create Notification Template 	| POST /notifications/templates	| Create a new notification template.	|  TBD
-NS02	| List Notification Templates	| GET /api/v2/notificationtemplates/{id} | Fetches a pages list of notification templates.	|  Looking up a list of all notification templates.
-NS03	| Get Notification Template 	| GET /notifications/templates/{id} | Fetches a single notification template by ID.	|  Looking up a single notification template.
+NS01	| Create Notification Template 	| POST /notifications/templates	| Create a new notification template.	|  Sending notifications to users via SMS, Email, and Push channels
+NS02	| List Notification Templates	| GET /api/v2/notificationtemplates/{id} | Fetches a pages list of notification templates.	|  Looking up a list of notification templates.
+NS03	| Get a Notification Template 	| GET /notifications/templates/{id} | Fetches a single notification template by ID.	|  Looking up a single notification template.
 NS04	| Update Notification Template 	| PUT 	/notifications/templates/{id} | Update a notification template by ID.	|  Updating a notification template.
-NS05	| Delete Notification Template 	| DELETE /notifications/templates/{id} | Remove a notification template from the system by ID.	|  Deleting a notification template (for example, when it is no longer used).
-NS06	| Coming soon | TBD | TBD | TBD 
+NS05	| Delete Notification Template 	| DELETE /notifications/templates/{id} | Remove a notification template from the system by ID.	|  Deleting a notification template (for example, when it is no longer used). 
 
 **Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
