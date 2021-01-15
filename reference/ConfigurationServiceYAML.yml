@@ -13,7 +13,7 @@ info:
   version: 1.0.0
   x-safety-class: C
   x-safety-class-description: "the loss of the primary function of the User Schedule\
-    \ Service may potentially, worse-case, cause serious injury to the patient."
+    \ Service may potentially, worst-case, cause serious injury to the patient."
   x-external-services:
   - name: User Non-PII Service
     use: "used to get user information, status and permissions"
