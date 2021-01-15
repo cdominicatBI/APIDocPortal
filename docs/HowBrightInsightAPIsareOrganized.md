@@ -38,6 +38,21 @@ Compliant with the Open API Specification (OAS) 3.0, BrightInsight APIs organize
 - [ ] callbacks
 - [ ] schemas
 
-**Tip:** Swagger is simply a way to view an API, it is actually the specification on which the API code is built. You can view APIs in many applications that use the same format spec. and simply *consume* the YAML. BrightInsight Platform 2.0 APIs are presented in Stoplight, which is a web application that works very much like Swagger and also allows you to export the API in YAML to use for application development. 
+**Tip:** Swagger is simply a way to view an API, it is actually the specification on which the API code is built. You can view APIs in many applications that use the same format spec. and simply *consume* the YAML. 
+
+## Downloading the YAML File
+
+BrightInsight Platform 2.0 APIs are presented in this Portal in Stoplight, which is a web application that works very much like Swagger and also allows you to export the API in YAML to use for application development (example below)
 ![Stoplight Export Button](../assets/images/ExportfromStoplight.png)
-If you choose to download our APIs and then view them instead in Swagger, note that the *Components* section displays at the bottom of the Swagger display in grey. 
+
+## Viewing Models/Schema
+
+When an API has a referenced model or schema, there are several ways to view that relationship.
+
+- **Here in the Developer Portal**, Stoplight shows referenced models/schemas in an **Others**  list on the left for each microservice (example below).
+![Models/Schemas in Stoplight](../assets/images/StoplightSchemasModels.png)
+
+- **In Swagger**, you can view the Models under the **Schema** toggle for each API (example below). 
+![How to see Models in Swagger](../assets/images/SwaggerSchemasModels.png)
+
+**Note**: You will also find these components listed seperately as a long list at the bottom of the Swagger display in grey.
