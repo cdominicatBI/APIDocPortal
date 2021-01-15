@@ -1,6 +1,8 @@
 # Organization Service API User Guide
 
-This overview explains how to use the [Organization Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable, and is intended for application developers who are using this microservice to build a custom application.
+This guide explains how to use the [Organization Service API](reference/OrganizationServiceAPI.yml) when configuring a deliverable, and is intended for application developers who are using this microservice to build a custom application.
+
+**Note**: [See the API Overview](../docs/Overview.md)
 
 # What is the Organization Service?
 Essentially, Organization Service APIs are a mesh of policies governing organizations in a customer solution. BrightInsight developers use them to define and work with organizations and how they are assigned to functions and microservices in the customer application. This allows them to easily map permissions and data policies for each organization. BrightInsight developers typically provide the initial configuration and these remain in place once they have been tested and put into production.
@@ -38,5 +40,3 @@ API-OS05	| Patch Organization	| PATCH/ organizations/{id}	| Change specific sett
 API-OS06	| Delete Organization	| DELETE /organizations/{id}	| Removes an organization from the system.	| Deleting an organization (without removing end-users assigned to that organization).
 API-OS07	| Get Child Organizations	| GET /organizations/{id}/children	| Fetches a list of child organizations under an organization.	| Looking up the organizations that are descendants of an organization.
 API-OS08	| Get User Organization	|GET /organizations/user	| Fetches a paged list of organizations that the current user is enrolled in.	| Use to list the organizations with which the user is associated.
-
-**Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)

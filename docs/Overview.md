@@ -1,4 +1,4 @@
-# How Bright Insight APIs Are Organized
+# Overview
 
 This section explains how our APIs are organized so you can navigate them and apply them to your implementation.
 

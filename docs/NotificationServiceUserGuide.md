@@ -1,6 +1,8 @@
 # Notification Service User Guide
 
-This overview explains how to use the [Organization Service API](reference/NotificationServiceAPI.yml) as part of an application. 
+This guide explains how to use the [Organization Service API](reference/NotificationServiceAPI.yml) as part of an application. 
+
+**Note**: [See the API Overview](../docs/Overview.md)
 
 # What is the Organization Service?
 "Notification Service APIs facilitate communication from BrightInsight microservices\
@@ -31,5 +33,3 @@ NS02	| List Notification Templates	| GET /notifications/templates | Fetches a pa
 NS03	| Get a Notification Template 	| GET /notifications/templates/{id} | Fetches a single notification template by ID.	|  Looking up a single notification template.
 NS04	| Update Notification Template 	| PUT /notifications/templates/{id} | Update a notification template by ID.	|  Updating a notification template.
 NS05	| Delete Notification Template 	| DELETE /notifications/templates/{id} | Remove a notification template from the system by ID.	|  Deleting a notification template (for example, when it is no longer used). 
-
-**Next: **[See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)

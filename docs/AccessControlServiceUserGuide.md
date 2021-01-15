@@ -2,6 +2,8 @@
 
 This overview explains how to use the [Access Control Service API](reference/AccessControlServiceYAML.yml) when configuring a deliverable. 
 
+**Note**: [See the API Overview](../docs/Overview.md)
+
 ## What is the Access Control Service?
 
 Essentially, Access Control Service APIs are a mesh of policies that govern the following elements of access control for a microservice:
@@ -63,5 +65,3 @@ API-CS05	| Get Consent Assignments for Recipient	| GRPC Service name: ConsentAss
 API-CS06	| Create Consent Template	| TBD	| TBD	| TBD
 API-CS07	| Create Consent Assignment	| TBD	| TBD	| TBD
 API-CS08	| Create Consent Template	| Post /consent-template	| Creates a new consent template.	| TBD
-
-**Next:** [See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)

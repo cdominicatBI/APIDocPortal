@@ -1,6 +1,8 @@
 # Configuration Service API User Guide
 
-This overview explains how to use the [Configuration Service API](reference/ConfigurationServiceAPI.yml) when configuring a deliverable. 
+This guide explains how to use the [Configuration Service API](reference/ConfigurationServiceAPI.yml) when configuring a deliverable. 
+
+**Note**: [See the API Overview](../docs/Overview.md)
 
 ## What is the Configuration Service?
 
@@ -85,6 +87,3 @@ CS-17	| Get User Settings	| GET /user-settings?user-did=<userDid>&category=<cate
   "allowOverride":false //default false 
 
 }
-
-
-**Next:** [See How BrightInsight APIs are Organized](../docs/HowBrightInsightAPIsareOrganized.md)
