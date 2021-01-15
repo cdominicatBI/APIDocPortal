@@ -28,7 +28,7 @@ Clicking either changes the display to show examples or schemas.
 
 ### Components or Models
 
-Compliant with the OAS 3.0 specification, BrightInsight APIs organize the following reusable objects in a #/components section in the code:
+Compliant with the Open API Specification (OAS) 3.0, BrightInsight APIs organize the following reusable objects in a #/components section in the code:
 - [ ] responses 
 - [ ] parameters 
 - [ ] examples

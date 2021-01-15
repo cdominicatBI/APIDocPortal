@@ -40,6 +40,7 @@ API-UM4	| Get Invitation	| GET /invitations?invitation-id={invitation-id}&code={
 API-UM5	| Cancel Invitation	| DELETE /invitations/{invitation-code}	| Changes the invitation status to CANCELLED.	| Cancelling an invitation so a user can no longer access the customer application to register.
 API-UM9	| Create User	| POST /users	| Creates a user in the system.	| Creating new users.	
 API-UM10	| Resend User/Verify User	| POST /users/verify	| Prompts the user to verify the account.	| Send or resend a user an email to verify the account (for example, in case the first email expired).
+API-UM11	| Get User Profile	| GET /users/{user-id}	| Allows to get the profile of a currently logged in user	| Enabling users to get their profile info
 
 ### Password and Profile Management APIs
 
